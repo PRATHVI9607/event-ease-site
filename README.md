@@ -1,6 +1,6 @@
-# Event Ease site
+# Eventora site
 
-Static legal pages for Event Ease, served by GitHub Pages: `/privacy/` and `/terms/`.
+Static legal pages for Eventora, served by GitHub Pages: `/privacy/` and `/terms/`.
 
 Regenerate from the app repo (`docs/legal`):
 

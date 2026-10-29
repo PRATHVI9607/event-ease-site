@@ -29,12 +29,12 @@ ${body}
 </html>
 `;
 const nav = (p: string) =>
-  `<nav><a href="${p}">Event Ease</a><a href="${p}privacy/">Privacy Policy</a><a href="${p}terms/">Terms of Use</a></nav>`;
+  `<nav><a href="${p}">Eventora</a><a href="${p}privacy/">Privacy Policy</a><a href="${p}terms/">Terms of Use</a></nav>`;
 const doc = async (file: string, title: string, out: string) => {
   let md = await Deno.readTextFile(`${env("SRC")}/${file}`);
   md = md.replace(/^\s*<!--[\s\S]*?-->\s*/, "").replaceAll("[EFFECTIVE DATE]", date);
   if (email) md = md.replaceAll("[GRIEVANCE EMAIL]", email);
-  await Deno.writeTextFile(out, page(`${title} | Event Ease`, "../",
+  await Deno.writeTextFile(out, page(`${title} | Eventora`, "../",
     `${nav("../")}\n<article class="card">\n${marked.parse(md)}</article>`));
 };
 await doc("privacy-policy.md", "Privacy Policy", "privacy/index.html");
@@ -42,9 +42,9 @@ await doc("terms-of-use.md", "Terms of Use", "terms/index.html");
 const contact = email
   ? `Questions or complaints: <a href="mailto:${email}">${email}</a>.`
   : `Contact details are in the <a href="privacy/">Privacy Policy</a>.`;
-await Deno.writeTextFile("index.html", page("Event Ease", "",
+await Deno.writeTextFile("index.html", page("Eventora", "",
   `<div class="card">
-<h1>Event Ease</h1>
-<p>Event Ease is a hall booking app for the Udupi area. It helps you find community and event halls, check availability and book a date. Read our <a href="privacy/">Privacy Policy</a> and <a href="terms/">Terms of Use</a>. ${contact}</p>
+<h1>Eventora</h1>
+<p>Eventora is a hall booking app for the Udupi area. It helps you find community and event halls, check availability and book a date. Read our <a href="privacy/">Privacy Policy</a> and <a href="terms/">Terms of Use</a>. ${contact}</p>
 </div>`));
 TS
